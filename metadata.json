@@ -1,0 +1,14 @@
+{
+	"id": "Othermod",
+	"name": "Othermod",
+	"display_name": "Othermod",
+	"author": ["Walpurgisnacht"],
+	"description": "Just anOther balatro mod",
+	"prefix": "othe",
+	"main_file": "Othermod.lua",
+	"priority": 10000,
+	"badge_colour": "0000FF",
+	"badge_text_colour": "FFFFFF",
+	"version": "0.0.1",
+	"dependencies": []
+}
