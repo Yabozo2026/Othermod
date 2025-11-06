@@ -38,8 +38,8 @@ SMODS.ObjectType({
     key = "othe_challenge", -- The prefix is not added automatically so it's recommended to add it yourself
     default = "j_othe_chicken_joker",
     cards = {
-        j_othe_chicken_joker = true,
-        j_othe_needled_joker = true,
+        j_othe_chicken = true,
+        j_othe_needle_joker = true,
         j_othe_bloodsucker = true,
         j_othe_shattered = true,
         j_othe_dmca = true,
@@ -531,7 +531,7 @@ SMODS.Joker {
   key = 'torture',
   loc_txt = {
       name = 'Torture',
-      text = {'{C:mult}+3{} mult per blind cleared'}
+      text = {'{C:mult}+3{} mult after beating a blind', 'currently {C:mult}+#1#{} mult'}
   },
   rarity = 3,
   pos = {
@@ -539,19 +539,22 @@ SMODS.Joker {
       y = 0
   },
   cost = 7,
+  config = {extra = {mult = 0, mult_mod = 3}},
   discovered = true,
+   loc_vars = function(self, info_queue, card)
+        return {
+            vars = {card.ability.extra.mult, card.ability.extra.mult_mod}
+        }
+    end,
   calculate = function(self, card, context)
-      if context.cardarea == G.jokers and not context.before and not context.after then
-          local mult = G.GAME.round - 4
-          return {
-              message = localize {
-                  type = 'variable',
-                  key = 'a_mult',
-                  vars = {mult}
-              },
-              mult_mod = mult,
-              colour = G.C.MULT
-          }
+      if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+        card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_mod
+      end
+
+      if context.joker_main then
+        return{
+            mult = card.ability.extra.mult
+        }
       end
   end,
 
@@ -731,7 +734,7 @@ SMODS.Joker {
         ease_hands_played(-card.ability.extra.og_hands)
         ease_hands_played(1)
         ease_discard(card.ability.extra.og_hands - 1)
-end,
+   end,
     remove_from_deck = function(self, card, from_debuff)
         G.GAME.round_resets.hands = card.ability.extra.og_hands
         G.GAME.round_resets.discards = G.GAME.round_resets.discards - card.ability.extra.og_hands + 1
@@ -891,7 +894,7 @@ SMODS.Joker {
    },
    cost = 10,
    calculate = function (self,card,context)
-    if context.setting_blind and context.blind.boss then
+    if context.setting_blind then
         SMODS.add_card{ set = "othe_challenge", area = G.jokers }
    end
 end,
@@ -997,10 +1000,10 @@ SMODS.Joker {
                 return {repetitions = card.ability.extra.repetitions, remove = true}
             end
         end
-    end,
     in_pool = function(self, args)
     return not args and args.source ~= "jud"
-    end,
+    end
+end,
 atlas = "shattered"
 }
 SMODS.Atlas {
@@ -1059,10 +1062,10 @@ SMODS.Joker {
                 }))
         end
         end
-end,
 in_pool = function(self, args)
     return not args and args.source ~= "jud"
-    end,
+    end
+end,
 atlas = "dmca"
 }
 SMODS.Atlas {
