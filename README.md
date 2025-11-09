@@ -1,7 +1,7 @@
 # Othermod
 An Other balatro mod
 
-Currently adds 25 jokers, a new consumable type called potions and 5 of them, 2 decks, 1 enhancement
+Currently adds 28 jokers, a new consumable type called potions and 5 of them, 2 decks, 1 enhancement
 
 Has fusion compatibility adding 2 fusion jokers and deck sleeve compatibility adding 2 deck sleeves
 
