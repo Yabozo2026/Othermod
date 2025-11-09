@@ -49,6 +49,13 @@ function randomly_create_joker(jokers_to_create,tag,message,extra)
         end}))   
 end
 
+SMODS.Atlas({
+    key = 'potions',
+    path = 'potions.png',
+    px = '71',
+    py = '95'
+
+})
 -- Borrowed from betmma
     -- function Card:redeem() -- use redeem instead of apply to run because redeem happens before modification of used_vouchers
 
@@ -74,7 +81,8 @@ SMODS.Consumable {
         },
     },
     set = 'potion',
-    pos = {x = 0,y = 0}, 
+    atlas = "potions",
+   pos = {x = 0, y = 0},
     discovered = true,
     config = { extra = {odds = 8}},
     cost = 4,
@@ -95,13 +103,6 @@ SMODS.Consumable {
             }
     end
 end,
-atlas = 'blue_and_red'
-}
-SMODS.Atlas {
-    key = "blue_and_red",
-    path = "blue_and_red.png",
-    px = 71,
-    py = 95
 }
 
 SMODS.Consumable {
@@ -112,7 +113,8 @@ SMODS.Consumable {
         },
     },
     set = 'potion',
-    pos = {x = 0,y = 0}, 
+    atlas = "potions",
+   pos = {x = 1, y = 0},
     discovered = true,
     cost = 4,
     rate = 1,
@@ -129,13 +131,6 @@ SMODS.Consumable {
             G.jokers.config.card_limit = G.jokers.config.card_limit + 1
     end
 end,
-atlas = "backpack_brandy"
-}
-SMODS.Atlas {
-key = 'backpack_brandy',
-path = 'backpack_brandy.png',
-px = 71,
-py = 95
 }
 SMODS.Consumable {
     key = 'midas_mix',
@@ -145,7 +140,8 @@ SMODS.Consumable {
         },
     },
     set = 'potion',
-    pos = {x = 0,y = 0}, 
+   atlas = "potions",
+   pos = {x = 2, y = 0},
     discovered = true,
     cost = 2,
     rate = 2,
@@ -160,13 +156,6 @@ SMODS.Consumable {
         G.GAME.dollars = G.GAME.dollars * 2
     end
 end,
-atlas = 'midas_mix'
-}
-SMODS.Atlas {
-    key = "midas_mix",
-    path = "midas_mix.png",
-    px = 71,
-    py = 95
 }
 
 SMODS.Consumable {
@@ -177,7 +166,8 @@ SMODS.Consumable {
         },
     },
     set = 'potion',
-    pos = {x = 0,y = 0}, 
+    atlas = "potions",
+   pos = {x = 3, y = 0},
     discovered = true,
     cost = 4,
     config = { extra = {odds = 10}},
@@ -201,13 +191,6 @@ SMODS.Consumable {
             end
     end
 end,
-atlas = 'voucher_vodka'
-}
-SMODS.Atlas {
-    key = "voucher_vodka",
-    path = "voucher_vodka.png",
-    px = 71,
-    py = 95
 }
 
 SMODS.Consumable {
@@ -218,7 +201,8 @@ SMODS.Consumable {
         },
     },
     set = 'potion',
-    pos = {x = 0,y = 0}, 
+   atlas = "potions",
+   pos = {x = 4, y = 0},
     discovered = true,
     cost = 7,
     rate = 1.5,
@@ -267,14 +251,7 @@ SMODS.Consumable {
             end
         end,
         
-atlas = 'joker_juice'
-}
-SMODS.Atlas {
-    key = "joker_juice",
-    path = "joker_juice.png",
-    px = 71,
-    py = 95
-}
+    }
 
 
 

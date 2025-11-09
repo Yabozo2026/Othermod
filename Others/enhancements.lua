@@ -1,5 +1,14 @@
+SMODS.Atlas({
+    key = 'enhancements',
+    path = 'enhancements.png',
+    px = '71',
+    py = '95'
+
+})
+
 SMODS.Enhancement({
     key = "wrapped",
+    atlas = "enhancements",
     pos = {x = 0, y = 0},
     config = {extra = {present_points = 5, present_points_loss = 1, present_points_reset = 5}},
     discovered = false,
@@ -17,12 +26,5 @@ SMODS.Enhancement({
             end
         end
     end,
-atlas = "wrapped"
 }
 )
-SMODS.Atlas {
-    key = "wrapped",
-    path = "wrapped.png",
-    px = 71,
-    py = 95
-}

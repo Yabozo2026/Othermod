@@ -1,3 +1,11 @@
+SMODS.Atlas({
+    key = 'Decks',
+    path = 'Decks.png',
+    px = '71',
+    py = '95'
+
+})
+
 SMODS.Back {
     key = "white",
     loc_txt = {
@@ -5,7 +13,8 @@ SMODS.Back {
       text = {'retriggers unmodified cards'                                        
             }
    },
-    pos = { x = 0, y = 0 },
+    atlas = "Decks",
+  pos = {x = 0, y = 0},
     config = {repetitions = 1},
     loc_vars = function(self, info_queue, card)
 	return {vars = {self.config.repetitions}}
@@ -17,13 +26,6 @@ SMODS.Back {
             end
         end
 end,
-atlas = "white"
-}
-SMODS.Atlas {
-    key = "white",
-    path = "White_Deck.png",
-    px = 71,
-    py = 95
 }
 
 SMODS.Back {
@@ -33,7 +35,8 @@ SMODS.Back {
       text = {'creates 2 {C:othe_rainbow}deck{} jokers'                                        
             }
    },
-    pos = { x = 0, y = 0 },
+    atlas = "Decks",
+  pos = {x = 0, y = 0},
     apply = function(card,self)
         G.E_MANAGER:add_event(Event({
         func = function()

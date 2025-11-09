@@ -1,5 +1,13 @@
 -- Skeleton for creating an object
 -- code made so that the joker can add hands to the current amount
+SMODS.Atlas({
+    key = 'jokers',
+    path = 'jokers.png',
+    px = '71',
+    py = '95'
+
+})
+
 SMODS.ObjectType({
     key = "othe_Food", -- The prefix is not added automatically so it's recommended to add it yourself
     default = "j_ice_cream",
@@ -56,10 +64,8 @@ SMODS.Joker {
       text = {'{C:red}+2{} discards but {C:blue}-1{} hand'}
    },
    rarity = 2,
-   pos = {
-      x = 0,
-      y = 0
-   },
+   atlas = "jokers",
+   pos = {x = 0, y = 0},
    cost = 5,
    discovered = false,
     add_to_deck = function(self, card, from_debuff)
@@ -74,14 +80,6 @@ end,
         ease_discard(-2)
         ease_hands_played(1)
 end,
-
-atlas = "red_deck_joker"
-}
-SMODS.Atlas {
-    key = "red_deck_joker",
-    path = "red_deck_joker.png",
-    px = 71,
-    py = 95
 }
 
 
@@ -93,10 +91,8 @@ SMODS.Joker {
 
 },
    rarity = 2,
-   pos = {
-      x = 0,
-      y = 0
-   },
+   atlas = "jokers",
+   pos = {x = 1, y = 0},
    cost = 9,
    discovered = true,
    add_to_deck = function(self, card, from_debuff)
@@ -107,13 +103,6 @@ SMODS.Joker {
    end,
 
 
-atlas = "yellow_deck_joker"
-}
-SMODS.Atlas {
-    key = "yellow_deck_joker",
-    path = "yellow_deck_joker.png",
-    px = 71,
-    py = 95
 }
 SMODS.Joker {
     key = 'green_deck_joker',
@@ -122,10 +111,8 @@ SMODS.Joker {
       text = {'{C:money}+1${} for every remaining hand and discard'}
    },
    rarity = 2,
-   pos = {
-      x = 0,
-      y = 0
-   },
+   atlas = "jokers",
+   pos = {x = 2, y = 0},
    cost = 7,
    discovered = true,
    add_to_deck = function(self, card, from_debuff)
@@ -136,13 +123,6 @@ end,
         G.GAME.modifiers.money_per_hand = G.GAME.modifiers.money_per_hand - 1
         G.GAME.modifiers.money_per_discard = G.GAME.modifiers.money_per_discard - 1
 end,
-atlas = "green_deck_joker"
-}
-SMODS.Atlas {
-    key = "green_deck_joker",
-    path = "green_deck_joker.png",
-    px = 71,
-    py = 95
 }
 
 
@@ -153,10 +133,8 @@ SMODS.Joker {
       text = {'{C:blue}+2{} hands but {C:red}-1{} discard'}
    },
    rarity = 2,
-   pos = {
-      x = 0,
-      y = 0
-   },
+   atlas = "jokers",
+   pos = {x = 3, y = 0},
    cost = 5,
    discovered = true,
     add_to_deck = function(self, card, from_debuff)
@@ -172,13 +150,6 @@ end,
         ease_discard(1)
 end,
 
-atlas = "blue_deck_joker"
-}
-SMODS.Atlas {
-    key = "blue_deck_joker",
-    path = "blue_deck_joker.png",
-    px = 71,
-    py = 95
 }
 
 SMODS.Joker {
@@ -188,10 +159,8 @@ SMODS.Joker {
       text = {'{C:attention}+3{} joker slots but', '{C:blue}-1{} hand and {C:red}-1{} discard'}
    },
    rarity = 3,
-   pos = {
-      x = 0,
-      y = 0
-   },
+   atlas = "jokers",
+   pos = {x = 4, y = 0},
    cost = 5,
    discovered = true,
     add_to_deck = function(self, card, from_debuff)
@@ -208,13 +177,6 @@ end,
         ease_discard(1)
         ease_hands_played(1)
 end,
-atlas = "black_deck_joker"
-}
-SMODS.Atlas {
-    key = "black_deck_joker",
-    path = "black_deck_joker.png",
-    px = 71,
-    py = 95
 }
 
 SMODS.Joker {
@@ -224,10 +186,8 @@ SMODS.Joker {
       text = {'{C:green}#2#/#3#{} chance to retrigger unmodified cards'}
    },
    rarity = 2,
-   pos = {
-      x = 0,
-      y = 0
-   },
+  atlas = "jokers",
+   pos = {x = 5, y = 0},
    cost = 5,
    discovered = true,
    config = {extra = {odds = 3, repetitions = 1}},
@@ -244,16 +204,7 @@ SMODS.Joker {
         end
     end
 end,
-
-atlas = "white_deck_joker"
 }
-SMODS.Atlas {
-    key = "white_deck_joker",
-    path = "white_deck_joker.png",
-    px = 71,
-    py = 95
-}
-
 SMODS.Joker {
     key = 'painted_deck_joker',
     loc_txt = {
@@ -261,10 +212,8 @@ SMODS.Joker {
       text = {'increases hand size by {C:attention}3{}', 'but removes a joker slot'}
    },
    rarity = 1,
-   pos = {
-      x = 0,
-      y = 0
-   },
+   atlas = "jokers",
+   pos = {x = 6, y = 0},
    cost = 3,
    discovered = true,
     add_to_deck = function(self, card, from_debuff)
@@ -276,14 +225,6 @@ end,
         G.jokers.config.card_limit = G.jokers.config.card_limit + 1
 
 end,
-    
-atlas = "painted_deck_joker"
-}
-SMODS.Atlas {
-    key = "painted_deck_joker",
-    path = "painted_deck_joker.png",
-    px = 71,
-    py = 95
 }
 
 SMODS.Joker {
@@ -293,10 +234,8 @@ SMODS.Joker {
       text = {'Planets and Tarots appear {C:attention}2X{} more frequently'}
    },
    rarity = 1,
-   pos = {
-      x = 0,
-      y = 0
-   },
+   atlas = "jokers",
+   pos = {x = 7, y = 0},
    cost = 3,
    discovered = true,
     add_to_deck = function(self, card, from_debuff)
@@ -307,14 +246,6 @@ end,
         G.GAME.tarot_rate = G.GAME.tarot_rate/2
         G.GAME.planet_rate = G.GAME.planet_rate/2
 end,
-    
-atlas = "zodiac_deck_joker"
-}
-SMODS.Atlas {
-    key = "zodiac_deck_joker",
-    path = "zodiac_deck_joker.png",
-    px = 71,
-    py = 95
 }
 
 SMODS.Joker {
@@ -324,10 +255,8 @@ SMODS.Joker {
       text = {'after exiting shop create a {C:tarot}fool{} card'}
    },
    rarity = 2,
-   pos = {
-      x = 0,
-      y = 0
-   },
+   atlas = "jokers",
+   pos = {x = 8, y = 0},
    cost = 3,
    discovered = true,
     calculate = function(self, card, context)
@@ -339,13 +268,6 @@ SMODS.Joker {
             G.consumeables:emplace(fool)
         end
 end,
-atlas = "magic_deck_joker"
-}
-SMODS.Atlas {
-    key = "magic_deck_joker",
-    path = "magic_deck_joker.png",
-    px = 71,
-    py = 95
 }
 
 SMODS.Joker {
@@ -355,10 +277,8 @@ SMODS.Joker {
       text = {'after clearing a {C:attention}Blind{} there is a {C:green}#1# in #2#{} chance', 'to gain a {C:attention}Double Tag{}'}
    },
    rarity = 2,
-   pos = {
-      x = 0,
-      y = 0
-   },
+   atlas = "jokers",
+   pos = {x = 9, y = 0},
    cost = 5,
    loc_vars = function(self, info_queue, card)
     return {vars = {G.GAME.probabilities.normal*1,2}}
@@ -378,13 +298,6 @@ end,
         end
     end
 end,
-atlas = "anaglyph_deck_joker"
-}
-SMODS.Atlas {
-    key = "anaglyph_deck_joker",
-    path = "anaglyph_deck_joker.png",
-    px = 71,
-    py = 95
 }
 SMODS.Joker {
     key = 'magic_deck_joker',
@@ -393,10 +306,8 @@ SMODS.Joker {
       text = {'get {C:tarot,T:c_fool}#1#{} after exiting shop'}
    },
    rarity = 2,
-   pos = {
-      x = 0,
-      y = 0
-   },
+   atlas = "jokers",
+   pos = {x = 0, y = 1},
    cost = 3,
    discovered = true,
    config = {consumables = {'c_fool', 'c_fool'}},
@@ -420,26 +331,17 @@ SMODS.Joker {
         }))
     end
 end,
-atlas = "magic_deck_joker"
-}
-SMODS.Atlas {
-    key = "magic_deck_joker",
-    path = "magic_deck_joker.png",
-    px = 71,
-    py = 95
 }
 
 SMODS.Joker {
     key = 'checkered_deck_joker',
     loc_txt = {
       name = 'Checkered Deck Joker',
-      text = {'creates {C:tarot}sun{} card and {C:tarot}world{} card after leaving shop'}
+      text = {'creates {C:tarot}sun{} card and {C:tarot}world{} card after leaving shop', '{C:inactive}must have room for 2 tarot cards{}'}
    },
    rarity = 2,
-   pos = {
-      x = 0,
-      y = 0
-   },
+   atlas = "jokers",
+   pos = {x = 0, y = 1},
    cost = 3,
    discovered = true,
    config = {consumables = {'c_sun', 'c_world'}},
@@ -464,13 +366,6 @@ SMODS.Joker {
         }))
 end
 end,
-atlas = "checkered_deck_joker"
-}
-SMODS.Atlas {
-    key = "checkered_deck_joker",
-    path = "checkered_deck_joker.png",
-    px = 71,
-    py = 95
 }
 
 SMODS.Joker {
@@ -480,10 +375,8 @@ SMODS.Joker {
       text = {'{C:green}#1# in #2#{} chance to get Spectral after exiting shop'}
    },
    rarity = 2,
-   pos = {
-      x = 0,
-      y = 0
-   },
+   atlas = "jokers",
+   pos = {x = 1, y = 1},
    config = { extra = { odds = 3 } },
    cost = 5,
    discovered = true,
@@ -518,13 +411,6 @@ SMODS.Joker {
             end
         end
     end,
-atlas = "ghost_deck_joker"
-}
-SMODS.Atlas {
-    key = "ghost_deck_joker",
-    path = "ghost_deck_joker.png",
-    px = 71,
-    py = 95
 }
 
 SMODS.Joker {
@@ -534,10 +420,8 @@ SMODS.Joker {
       text = {'{C:mult}+3{} mult after beating a blind', 'currently {C:mult}+#1#{} mult'}
   },
   rarity = 3,
-  pos = {
-      x = 0,
-      y = 0
-  },
+ atlas = "jokers",
+   pos = {x = 2, y = 1},
   cost = 7,
   config = {extra = {mult = 0, mult_mod = 3}},
   discovered = true,
@@ -557,14 +441,6 @@ SMODS.Joker {
         }
       end
   end,
-
-  atlas = "torture"
-}
-SMODS.Atlas {
-    key = "torture",
-    path = "torture.png",
-    px = 71,
-    py = 95
 }
 
   SMODS.Joker {
@@ -575,11 +451,8 @@ SMODS.Atlas {
 
     },
 
-    rarity = 2,
-    pos = {
-        x = 0,
-        y = 0
-    },
+    atlas = "jokers",
+   pos = {x = 3, y = 1},
     config = {
         mult = 30,
         money = 30
@@ -607,14 +480,7 @@ SMODS.Atlas {
             end
         end
     end,
-    atlas="rich_get_richer"
-}
-SMODS.Atlas {
-    key = "rich_get_richer",
-    path = "rich_get_richer.png",
-    px = 71,
-    py = 95
-}
+  }
 
 SMODS.Joker {
     key = 'knurples',
@@ -624,10 +490,8 @@ SMODS.Joker {
 
 },
    rarity = 2,
-   pos = {
-      x = 0,
-      y = 0
-   },
+   atlas = "jokers",
+   pos = {x = 4, y = 1},
    config = {
     extra = 40
 
@@ -649,15 +513,7 @@ SMODS.Joker {
     end
     end
    end,
-atlas = 'knurples'
 }
-   SMODS.Atlas {
-    key = "knurples",
-    path = "knurples.png",
-    px = 71,
-    py = 95
-   }
-
 
 SMODS.Joker {
     key = 'joker?',
@@ -669,10 +525,8 @@ SMODS.Joker {
             }
    },
    rarity = 2,
-   pos = {
-      x = 0,
-      y = 0
-   },
+   atlas = "jokers",
+   pos = {x = 5, y = 1},
    config = {extra = {odds = 100, Xmult = 1.75, Xmult_mod = 0.15}},
    cost = 5,
    discovered = true,
@@ -701,13 +555,6 @@ SMODS.Joker {
         end
     end
 end,
-atlas = "joker?"
-}
-SMODS.Atlas {
-    key = "joker?",
-    path = "JokerQ.png",
-    px = 71,
-    py = 95
 }
 SMODS.Joker {
     key = 'needle_joker',
@@ -717,10 +564,8 @@ SMODS.Joker {
             }
    },
    rarity = 2,
-   pos = {
-      x = 0,
-      y = 0
-   },
+   atlas = "jokers",
+   pos = {x = 6, y = 1},
    config = { extra = {og_hands = 0, dollars = 1}},
        loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.dollars } }
@@ -747,16 +592,8 @@ end,
             G.GAME.current_round.discards_left * (card.ability.extra.dollars) or nil
     end,
     in_pool = function(self, args)
-    return not args and args.source ~= "jud"
+    return not args or args.source ~= "jud"
 end,
-  
-atlas = "needle_joker"
-}
-SMODS.Atlas {
-    key = "needle_joker",
-    path = "needle_joker.png",
-    px = 71,
-    py = 95
 }
 
 SMODS.Joker {
@@ -767,10 +604,8 @@ SMODS.Joker {
             }
    },
    rarity = 3,
-   pos = {
-      x = 0,
-      y = 0
-   },
+ atlas = "jokers",
+   pos = {x = 7, y = 1},
    config = { extra = {joker = 'j_egg', odds = 3, og_money}},
        loc_vars = function(self, info_queue, card)
         local numerator, denominator = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'chicken_joker')
@@ -784,17 +619,10 @@ SMODS.Joker {
         SMODS.add_card({key = card.ability.extra.joker, stickers = {'perishable'}, force_stickers = true, edition = 'e_negative'})
         end
    end
-    in_pool = function(self, args)
-    return not args and args.source ~= "jud"
-    end
 end,
-atlas = "chicken"
-}
-SMODS.Atlas {
-    key = "chicken",
-    path = "Chicken.png",
-    px = 71,
-    py = 95
+    in_pool = function(self, args)
+    return not args or args.source ~= "jud"
+end,
 }
 
 SMODS.Joker {
@@ -805,10 +633,8 @@ SMODS.Joker {
             }
    },
    rarity = 3,
-   pos = {
-      x = 0,
-      y = 0
-   },
+   atlas = "jokers",
+   pos = {x = 8, y = 1},
    config = { extra = {min = 1, max = 4}},
        loc_vars = function(self, info_queue, card)
         return {vars = {math.abs(card.ability.extra.min), card.ability.extra.max}}
@@ -821,13 +647,6 @@ SMODS.Joker {
         ease_dollars(money)
     end
 end,
-atlas = "d20"
-}
-SMODS.Atlas {
-    key = "d20",
-    path = "d20.png",
-    px = 71,
-    py = 95
 }
 
 SMODS.Joker {
@@ -838,10 +657,8 @@ SMODS.Joker {
             }
    },
    rarity = 3,
-   pos = {
-      x = 0,
-      y = 0
-   },
+   atlas = "jokers",
+   pos = {x = 9, y = 1},
    config = { extra = {inflation = 5, rarity_boost = 3}},
        loc_vars = function(self, info_queue, card)
         return {vars = {card.ability.extra.inflation, card.ability.extra.rarity_boost}}
@@ -871,13 +688,6 @@ SMODS.Joker {
         }))
    end,
    
-atlas = "bribery"
-}
-SMODS.Atlas {
-    key = "bribery",
-    path = "bribery.png",
-    px = 71,
-    py = 95
 }
 
 SMODS.Joker {
@@ -888,23 +698,14 @@ SMODS.Joker {
             }
    },
    rarity = 3,
-   pos = {
-      x = 0,
-      y = 0
-   },
+   atlas = "jokers",
+   pos = {x = 0, y = 2},
    cost = 10,
    calculate = function (self,card,context)
-    if context.setting_blind then
+    if context.setting_blind and context.blind.boss then
         SMODS.add_card{ set = "othe_challenge", area = G.jokers }
    end
 end,
-   atlas = "challenge_joker"
-   }
-SMODS.Atlas {
-    key = "challenge_joker",
-    path = "challenge_joker.png",
-    px = 71,
-    py = 95
 }
 
 SMODS.Joker {
@@ -922,7 +723,8 @@ SMODS.Joker {
     perishable_compat = false,
     rarity = 3,
     cost = 7,
-    pos = { x = 0, y = 0 },
+     atlas = "jokers",
+    pos = {x = 1, y = 2},
     config = { extra = { Xmult_gain = 0.25, Xmult = 1.25 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.Xmult_gain, card.ability.extra.Xmult } }
@@ -964,17 +766,10 @@ end,
                 xmult = card.ability.extra.Xmult
             }
         end
-    in_pool = function(self, args)
-    return not args and args.source ~= "jud"
-    end
     end,
-atlas = "bloodsucker"
-   }
-SMODS.Atlas {
-    key = "bloodsucker",
-    path = "bloodsucker.png",
-    px = 71,
-    py = 95
+    in_pool = function(self, args)
+    return not args or args.source ~= "jud"
+    end,
 }
 
 SMODS.Joker {
@@ -983,12 +778,9 @@ SMODS.Joker {
       name = 'Shattered',
       text = {'Retriggers and {C:attention}breaks{} glass cards'}
    },
-   rarity = 3,
-   pos = {
-      x = 0,
-      y = 0
-   },
    cost = 5,
+    atlas = "jokers",
+  pos = {x = 2, y = 2},
    discovered = true,
    config = {extra = {repetitions = 1}},
    loc_vars = function(self, info_queue, card)
@@ -1000,17 +792,10 @@ SMODS.Joker {
                 return {repetitions = card.ability.extra.repetitions, remove = true}
             end
         end
+    end,
     in_pool = function(self, args)
-    return not args and args.source ~= "jud"
-    end
+    return not args or args.source ~= "jud"
 end,
-atlas = "shattered"
-}
-SMODS.Atlas {
-    key = "shattered",
-    path = "shattered.png",
-    px = 71,
-    py = 95
 }
 
 SMODS.Joker {
@@ -1020,11 +805,9 @@ SMODS.Joker {
       text = {'At the start of the blind sell joker to the left', 'for {C:money}x#3#{} its sell value + {C:money}#1#${} (the cards sold)', 'if the total is worth {C:money}#4#${} or more then', 'it increases the sell value multiplier by #5#'}
    },
    rarity = 3,
-   pos = {
-      x = 0,
-      y = 0
-   },
    cost = 5,
+atlas = "jokers",
+  pos = {x = 3, y = 2},
    discovered = true,
    config = {extra = {price = 0, value_mod = 1, sell_mult = 1, value_max = 3, sell_mod = 0.5}},
    loc_vars = function(self, info_queue, card)
@@ -1062,17 +845,10 @@ SMODS.Joker {
                 }))
         end
         end
+    end,
 in_pool = function(self, args)
-    return not args and args.source ~= "jud"
-    end
+    return not args or args.source ~= "jud"
 end,
-atlas = "dmca"
-}
-SMODS.Atlas {
-    key = "dmca",
-    path = "dmca.png",
-    px = 71,
-    py = 95
 }
 
 SMODS.Joker {
@@ -1082,10 +858,9 @@ SMODS.Joker {
       text = {'gives between {X:mult,C:white} X#1#{} to {X:mult,C:white}X#2#{} mult', 'increases by {X:mult,C:white} X#3#{} when playing, discarding or beating the round', 'this value increases by #6# after beating a boss blind and the minimum and maximum', 'values increases by a fifth of the maximum value', '{C:green}#4# in #5#{} chance to create a {C:spectral}soul{} card'}
    },
    rarity = 2,
-   pos = {
-      x = 0,
-      y = 0
-   },
+   cost = 6,
+    atlas = "jokers",
+  pos = {x = 4, y = 2},
     discovered = true,
     config = {extra = {Xmult_min = 1, Xmult_max = 1.5, Xmult_max_gain = 0.01, odds = 731, Xmult_max_gain_mod = 0.01}},
     loc_vars = function (self,info_queue,card)
@@ -1104,6 +879,9 @@ SMODS.Joker {
                     message = localize('k_winner')
                 }
             end
+            return{
+            Xmult = pseudorandom("pagerson") * (card.ability.extra.Xmult_max - card.ability.extra.Xmult_min) + card.ability.extra.Xmult_min
+            }
         end
         if context.before or (context.end_of_round and context.main_eval) or context.pre_discard then
             card.ability.extra.Xmult_max = card.ability.extra.Xmult_max + card.ability.extra.Xmult_max_gain
@@ -1114,11 +892,25 @@ SMODS.Joker {
             card.ability.extra.Xmult_min = card.ability.extra.Xmult_min + (card.ability.extra.Xmult_max - 1)/5
         end
 end,
-atlas = "pagerson"
 }
-SMODS.Atlas {
-    key = "pagerson",
-    path = "Pagerson.png",
-    px = 71,
-    py = 95
+
+
+SMODS.Joker {
+    key = 'astro',
+    loc_txt = {
+      name = 'Astro',
+      text = {'If played hand contains a {C:attention}Flush{}', 'create an {C:attention}enhanced{} {C:spades}Spade{} card'}
+   },
+   rarity = 2,
+    atlas = "jokers",
+  pos = {x = 7, y = 2},
+    discovered = true,
+    calculate = function (self,card,context)
+        if context.before and next(context.poker_hands['Flush']) then
+            SMODS.add_card{ -- Random enhanced 3 of Clubs
+            set = "Enhanced",
+            suit = "Spades"
+            }
+        end
+end,
 }

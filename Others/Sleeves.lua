@@ -1,6 +1,14 @@
+SMODS.Atlas({
+    key = 'sleeves',
+    path = 'sleeves.png',
+    px = '71',
+    py = '95'
+
+})
+
 CardSleeves.Sleeve {
     key = "white_sleeve",
-    atlas = "white_sleeve",
+    atlas = "sleeves",
     pos = { x = 0, y = 0 },
     unlocked = false,
     discovered = false,
@@ -33,16 +41,10 @@ CardSleeves.Sleeve {
         end
 end
 }
-SMODS.Atlas {
-    key = "white_sleeve",
-    path = "white_sleeve.png",
-    px = 71,
-    py = 95
-}
 
 CardSleeves.Sleeve {
     key = "genetically_modified_sleeve",
-    atlas = "genetically_modified_sleeve",
+    atlas = "sleeves",
     pos = { x = 0, y = 0 },
     unlocked = false,
     discovered = false,
@@ -55,10 +57,4 @@ CardSleeves.Sleeve {
     return true
             end}))
         end
-}
-SMODS.Atlas {
-    key = "genetically_modified_sleeve",
-    path = "white_sleeve.png",
-    px = 71,
-    py = 95
 }
